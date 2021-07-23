@@ -1,0 +1,11 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+MAESTRÍA EN INGENIERÍA PARA LA INDUSTRIA CON ESPECIALIDAD EN CIENCIAS DE LA COMPUTACIÓN
+Proyecto R - Fundamentos de programación y scripting
+
+Marlon Vinicio Peralta García
+2335021060101
+
