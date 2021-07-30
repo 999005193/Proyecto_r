@@ -27,4 +27,17 @@ yearly <- read_csv("deaths_handwashing.csv")
 ```{r}
 yearly
 ```
+2. El alarmante número de muertes
+
+2.1. Use mutate para agregar la columna proportion_deaths a yearly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos
+
+```{r}
+yearly %>%
+  mutate()
+```
+2.2. Imprima yearly.
+
+```{r}
+yearly
+```
 
