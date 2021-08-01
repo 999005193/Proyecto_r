@@ -7,7 +7,7 @@ MAESTRÍA EN INGENIERÍA PARA LA INDUSTRIA CON ESPECIALIDAD EN CIENCIAS DE LA CO
 Proyecto R - Fundamentos de programación y scripting
 
 Marlon Vinicio Peralta García
-2335021060101
+999005193
 
 1. Conociendo los datos
 
@@ -32,12 +32,64 @@ yearly
 2.1. Use mutate para agregar la columna proportion_deaths a yearly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos
 
 ```{r}
-yearly %>%
-  mutate()
+yearly <- yearly %>%
+  mutate(proportion_deaths = births/deaths)
 ```
 2.2. Imprima yearly.
 
 ```{r}
 yearly
+```
+3. Muerte en las clínicas
+
+3.1. Utilice ggplot para hacer una gráfica lineal de proportion_deaths por año (columna
+year) con una línea por clínica.
+
+```{r}
+ggplot(yearly, aes(x=proportion_deaths, y=clinic)) +
+  geom_line()
+```
+
+3.2. Las líneas deben tener colores distintos.
+
+```{r}
+ggplot(yearly, aes(x=proportion_deaths, y=clinic, color=clinic)) +
+  geom_line()
+```
+
+4. Comienza el lavado de manos
+
+4.1. Cargue los datos mensuales de la Clínica 1 para ver si el lavado de manos tuvo algún efecto, para esto lea el archivo deaths_clinic_1.csv y asígnelo a la variable monthly.
+
+```{r}
+monthly <- read_csv("deaths_clinic_1.csv")
+
+monthly
+```
+
+4.2. Agregue la columna proportion_deaths a monthly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos.
+
+```{r}
+monthly <- monthly %>%
+  mutate(proportion_deaths = births/deaths)
+```
+
+4.3. Imprima las primeras filas de monthly usando la función head().
+
+```{r}
+head(monthly)
+```
+5. El efecto del lavado de manos
+
+5.1. Haga una gráfica lineal de proportion_deaths por fecha para el data frame monthly usando ggplot.
+
+```{r}
+
+```
+
+5.2. Utilice la función labs para dar al eje x y al eje y una estética a las etiquetas.
+
+```{r}
+
 ```
 
