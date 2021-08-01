@@ -33,7 +33,7 @@ yearly
 
 ```{r}
 yearly <- yearly %>%
-  mutate(proportion_deaths = births/deaths)
+  mutate(proportion_deaths = deaths/births)
 ```
 2.2. Imprima yearly.
 
@@ -46,14 +46,14 @@ yearly
 year) con una línea por clínica.
 
 ```{r}
-ggplot(yearly, aes(x=proportion_deaths, y=clinic)) +
+ggplot(yearly, aes(x=year, y=proportion_deaths)) +
   geom_line()
 ```
 
 3.2. Las líneas deben tener colores distintos.
 
 ```{r}
-ggplot(yearly, aes(x=proportion_deaths, y=clinic, color=clinic)) +
+ggplot(yearly, aes(x=year, y=proportion_deaths, color=clinic)) +
   geom_line()
 ```
 
@@ -71,7 +71,7 @@ monthly
 
 ```{r}
 monthly <- monthly %>%
-  mutate(proportion_deaths = births/deaths)
+  mutate(proportion_deaths = deaths/births)
 ```
 
 4.3. Imprima las primeras filas de monthly usando la función head().
@@ -84,12 +84,30 @@ head(monthly)
 5.1. Haga una gráfica lineal de proportion_deaths por fecha para el data frame monthly usando ggplot.
 
 ```{r}
-
+ggplot(monthly, aes(x=date, y=proportion_deaths)) +
+  geom_line()
 ```
 
 5.2. Utilice la función labs para dar al eje x y al eje y una estética a las etiquetas.
 
 ```{r}
-
+ggplot(monthly, aes(x=date, y=proportion_deaths)) +
+  geom_line() + 
+  labs(x = "Kiri", y = "HOla")
 ```
+6. Los resultados del lavado de manos
+El efecto del lavado de manos se hace aún más claro si lo resaltamos en el gráfico.
+
+6.1. Agregue una columna TRUE/FALSE a monthly llamado handwashing_started, que será TRUE a partir del año en que se impuso el lavado de manos.
+
+```{r}
+monthly <- monthly %>%
+  mutate(handwashing_started = births/deaths)
+```
+
+6.2. Haga una gráfica lineal de proportion_deaths por fecha para el data frame monthly usando ggplot. Haga que el color de la línea dependa de handwashing_started.
+
+
+6.3. Utilice la función labs para dar al eje x y al eje y una estética a las etiquetas.
+Dado que la columna monthly$date es una fecha, puede compararla con otras fechas utilizando los operadores de comparación (<,> =, ==, etc.).
 
